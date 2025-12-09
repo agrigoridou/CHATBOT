@@ -2,23 +2,48 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": ["Hi", "Hello", "Hey", "Is anyone there?"],
-      "responses": ["Hello!", "Hi there!", "Hey 🙂"]
+      "patterns": ["Hi", "Hello", "Hey", "Good morning", "Hey there", "Hi there", "Greetings", "Hello there"],
+      "responses": ["Hello!", "Hi there!", "Hey 🙂", "Greetings!"]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "Goodbye", "See you"],
-      "responses": ["Bye!", "See you later!", "Take care!"]
+      "patterns": ["Bye", "Goodbye", "See you later", "See you soon", "Catch you later", "Farewell"],
+      "responses": ["Bye!", "See you later!", "Take care!", "Goodbye!"]
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "Thank you"],
-      "responses": ["You're welcome!", "Happy to help!"]
+      "patterns": ["Thanks", "Thank you", "Thanks a lot", "I appreciate it", "Much obliged", "Thanks for your help"],
+      "responses": ["You're welcome!", "Happy to help!", "Anytime!", "My pleasure!"]
     },
     {
       "tag": "about",
-      "patterns": ["Who are you?", "What are you?"],
-      "responses": ["I am an AI chatbot 🤖"]
+      "patterns": ["Who are you?", "What are you?", "What can you do?", "Tell me about yourself"],
+      "responses": ["I'm Joana, your AI chatbot.", "I can chat and answer simple questions."]
+    },
+    {
+      "tag": "name",
+      "patterns": ["What's your name?", "Who are you?", "Your name?", "How should I call you?"],
+      "responses": ["You can call me Joana.", "I'm Joana!", "Just call me Joana."]
+    },
+    {
+      "tag": "help",
+      "patterns": ["Can you help me?", "I need support", "What can you do?", "Assist me please", "I need a hand"],
+      "responses": ["Sure! How can I assist you?", "Tell me your problem, I can help.", "Yes, I'm here to help!"]
+    },
+    {
+      "tag": "createaccount",
+      "patterns": ["I want to create an account", "How to open a new account", "Can you create an account?", "Sign me up", "Register me"],
+      "responses": ["You can create a new account from our website.", "Just go to our website and follow the instructions to create an account."]
+    },
+    {
+      "tag": "complaint",
+      "patterns": ["I have a complaint", "I want to report a problem", "There is an issue", "I need to lodge a complaint"],
+      "responses": ["Please tell me your complaint, we will assist you.", "Could you describe the issue so we can help you?"]
+    },
+    {
+      "tag": "joke",
+      "patterns": ["Tell me a joke", "Make me laugh", "Do you know a joke?", "Say something funny"],
+      "responses": ["Why did the chicken cross the road? To get to the other side! 😂", "I would tell you a joke about AI, but it's still learning.", "I love jokes! What do you call a sleeping bull? A bulldozer!"]
     }
   ]
 }
