@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Joana Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f2f2; padding: 20px; }
+        #chatbox { width: 500px; max-width: 100%; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        #messages { height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 5px; background: #fafafa; }
+        .user { color: blue; margin: 5px 0; }
+        .bot { color: green; margin: 5px 0; }
+        input[type="text"] { width: 80%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { padding: 10px 15px; border: none; border-radius: 5px; background: #4CAF50; color: white; cursor: pointer; }
+        button:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <div id="chatbox">
+        <h2>Joana Chatbot</h2>
+        <div id="messages"></div>
+        <input type="text" id="userInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        const messagesDiv = document.getElementById("messages");
+        const input = document.getElementById("userInput");
+
+        async function sendMessage() {
+            const msg = input.value.trim();
+            if (!msg) return;
+            
+            // Show user message
+            const userMsgDiv = document.createElement("div");
+            userMsgDiv.className = "user";
+            userMsgDiv.textContent = "You: " + msg;
+            messagesDiv.appendChild(userMsgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            input.value = "";
+
+            // Send POST request to Flask API
+            try {
+                const response = await fetch("/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: msg })
+                });
+                const data = await response.json();
+                
+                const botMsgDiv = document.createElement("div");
+                botMsgDiv.className = "bot";
+                botMsgDiv.textContent = "Bot: " + data.response;
+                messagesDiv.appendChild(botMsgDiv);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // Allow pressing Enter to send
+        input.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") sendMessage();
+        });
+    </script>
+</body>
+</html>
